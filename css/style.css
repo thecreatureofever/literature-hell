@@ -66,3 +66,64 @@ footer {
     font-size: 0.9em;
     border-top: 1px solid #333;
 }
+
+.donation-section {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    max-width: 600px;
+    background-color: #1a1a1a;
+    border: 1px solid #660000;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.donation-section p {
+    font-size: 1.1em;
+    color: #ccc;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.donate-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #990000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.donate-btn:hover {
+    background-color: #cc0000;
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.main-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 300%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.015) 40%, transparent 41%);
+    background-size: 120px 120px;
+    animation: diagonal-drift 10s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes diagonal-drift {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-120px, -120px);
+    }
+}
