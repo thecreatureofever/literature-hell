@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div id="header-container"></div>
+    <header>
+        <img src="images/cooltext.gif" alt="Literature Hell" class="title-gif" />
+        <p class="tagline">idk how to make a website but i will try</p>
+    </header>
 
     <main class="main-content">
         <section class="hero">
-            <img src="images/death.gif" alt="game screenshot or something else" />
+           <img src="images/death.gif" alt="game screenshot or something else" />
         </section>
 
         <section class="description">
@@ -21,25 +24,19 @@
 
         <section class="donation-section">
             <p>however, if you wanna change that<br>
-                then please consider donating</p>
+               then please consider donating</p>
             <a href="https://ko-fi.com/lelazyone" class="donate-btn" target="_blank">donate button i think</a>
         </section>
+
+        <!--
+        <section class="download">
+            <a href="#" class="download-btn">download coming idk at some point just wait</a>
+        </section>
+        -->
     </main>
 
     <footer>
-        <p>if you want to contact me for whatever reason please do so through 
-            <a href="https://x.com/ItsLeLazyOne" style="color: #e63946;">here</a> or discord</p>
+        <p>if you want to contact me for whatever reason please do so through <a href="https://x.com/ItsLeLazyOne" style="color: #e63946;">here</a> or discord</p>
     </footer>
-
-    <script>
-        const btn = document.querySelector('.toggle-header-btn');
-        const body = document.body;
-
-        function toggleHeader() {
-            body.classList.toggle('header-collapsed');
-            btn.textContent = body.classList.contains('header-collapsed') ? '▼' : '▲';
-        }
-    </script>
-  <script src="js/include.js"></script>
 </body>
 </html>
