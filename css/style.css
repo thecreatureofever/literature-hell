@@ -1,3 +1,4 @@
+/* === Global Styles === */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,25 +7,112 @@ body {
     text-align: center;
 }
 
-header {
-    padding: 3rem 1rem 1rem;
+/* === Header Styles === */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem;
     background-color: #1a1a1a;
-    border-bottom: 2px solid #990000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 2px solid #660000;
+    transition: transform 0.4s ease-in-out;
 }
 
-header h1 {
-    font-size: 3em;
-    margin: 0;
-    color: #ff1a1a;
+/* Title gif smaller */
+.title-gif {
+    height: 40px;
+    max-width: 100%;
 }
 
+/* Tagline smaller */
 .tagline {
-    font-size: 1.2em;
+    font-size: 0.8em;
     color: #ccc;
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
     font-style: italic;
 }
 
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    background: none;
+    color: #888;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.2s;
+}
+
+    color: #fff;
+}
+
+    transform: translateY(-100%);
+}
+
+}
+
+    display: flex;
+    width: 100%;
+    margin-top: 0.5rem;
+    position: relative;
+}
+
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 0;
+    background-color: #2a2a2a;
+    color: #888;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95em;
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease,
+        filter 0.3s ease;
+    border-left: 1px solid #444;
+    border-right: 1px solid #444;
+    border-top: 2px solid #660000;
+    border-radius: 0 0 6px 6px;
+    filter: grayscale(100%) brightness(0.8);
+    cursor: pointer;
+}
+
+/* Remove border on first and last */
+    border-left: none;
+}
+
+    border-right: none;
+}
+
+/* Hover state for tabs */
+    background-color: #990000;
+    color: #fff;
+    transform: translateY(4px);
+    filter: none;
+}
+
+/* Active tab stays colored and no hover animation */
+    background-color: #cc0000;
+    color: #fff;
+    filter: none;
+    cursor: default;
+    transform: none;
+}
+
+/* === Main Content === */
+.main-content {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* === Hero Section === */
 .hero img {
     max-width: 90%;
     height: auto;
@@ -32,6 +120,7 @@ header h1 {
     border: 3px solid #660000;
 }
 
+/* === Description Section === */
 .description {
     padding: 2rem 1rem;
 }
@@ -41,32 +130,7 @@ header h1 {
     color: #ff6666;
 }
 
-.download {
-    margin: 2rem;
-}
-
-.download-btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: #990000;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.download-btn:hover {
-    background-color: #cc0000;
-}
-
-footer {
-    padding: 1rem;
-    background-color: #1a1a1a;
-    color: #888;
-    font-size: 0.9em;
-    border-top: 1px solid #333;
-}
-
+/* === Donation Section === */
 .donation-section {
     margin: 2rem auto;
     padding: 1.5rem;
@@ -99,12 +163,16 @@ footer {
     background-color: #cc0000;
 }
 
-.main-content {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+/* === Footer === */
+footer {
+    padding: 1rem;
+    background-color: #1a1a1a;
+    color: #888;
+    font-size: 0.9em;
+    border-top: 1px solid #333;
 }
 
+/* === Main Content Background Animation === */
 .main-content::before {
     content: '';
     position: absolute;
@@ -126,4 +194,135 @@ footer {
     100% {
         transform: translate(-120px, -120px);
     }
+}
+
+/* === People Section for About page === */
+.people {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.person {
+    background-color: #1a1a1a;
+    border: 1px solid #660000;
+    border-radius: 8px;
+    padding: 1rem;
+    max-width: 200px;
+    color: #ccc;
+    text-align: center;
+}
+
+.person img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+
+.person h3 {
+    color: #ff6666;
+    margin-bottom: 0.3rem;
+}
+
+
+/* ====== HEADER ====== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: #000;
+  z-index: 1000;
+  transition: transform 0.4s ease;
+}
+
+/* Slide header off screen */
+.site-header.hidden {
+  transform: translateY(-100%);
+}
+
+/* Navigation grid */
+.nav-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 100%;
+}
+
+.nav-item,
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  text-decoration: none;
+  font-family: 'Creepster', cursive;
+  background-color: #444; /* default grey */
+  color: #ccc; /* dim text */
+}
+
+/* Hover + Active colors */
+.nav-item.home:hover,
+.nav-item.home.active {
+  background-color: #00cc44; /* green */
+  color: #fff;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.nav-item.about:hover,
+.nav-item.about.active {
+  background-color: #33ccff; /* light blue */
+  color: #fff;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.nav-item.page1:hover,
+.nav-item.page1.active {
+  background-color: #9933ff; /* purple */
+  color: #fff;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.nav-item.page2:hover,
+.nav-item.page2.active {
+  background-color: #ff66cc; /* pink */
+  color: #fff;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Logo section */
+.nav-logo {
+  background-color: black;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff3300;
+  text-shadow: 0 0 8px black, 0 0 15px red;
+  position: relative;
+}
+
+/* Toggle button under logo */
+.header-toggle {
+  position: absolute;
+  bottom: -20px;   /* sits just under header */
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #ff3300;
+  text-shadow: 0 0 5px black, 0 0 10px red;
+  opacity: 0.25;   /* semi-transparent default */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2000;
+}
+
+/* Hover → slide outward + full opacity */
+.header-toggle:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(5px) scale(1.2);
 }

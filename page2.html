@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page 2</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="header-container"></div>
+
+  <main class="main-content">
+    <h2>Page 2</h2>
+    <p>This is just another page that will be used for future content.</p>
+  </main>
+
+  <footer>
+    <p>if you want to contact me for whatever reason please do so through <a href="https://x.com/ItsLeLazyOne" style="color: #e63946;">here</a> or discord</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.querySelector('.toggle-header-btn');
+    const header = document.querySelector('header');
+
+    toggleBtn.addEventListener('click', () => {
+      const collapsed = document.body.classList.toggle('header-collapsed');
+      toggleBtn.innerHTML = collapsed ? '&#x25BC;' : '&#x25B2;';
+    });
+  </script>
+  <script src="js/include.js"></script>
+</body>
+</html>
