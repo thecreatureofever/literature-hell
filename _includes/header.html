@@ -1,0 +1,18 @@
+<header>
+  <div class="header-slot">
+    <a href="/" class="{% if page.path == 'index.md' or page.path == '/' %}active{% endif %}">Home</a>
+  </div>
+  <div class="header-slot">
+    <a href="/about" class="{% if page.path == 'about.md' or page.path == '/about' %}active{% endif %}">About</a>
+  </div>
+  <div class="header-slot center-slot">
+    <img src="/images/cooltext.gif" alt="Literature Hell" class="title-gif" />
+    <p class="tagline">alright its time</p>
+  </div>
+  <div class="header-slot">
+    <a href="/veryimportant" class="{% if page.path == 'page1.md' or page.path == '/veryimportant' %}active{% endif %}">Important</a>
+  </div>
+  <div class="header-slot">
+    <a href="/waiting" class="{% if page.path == 'page2.md' or page.path == '/waiting' %}active{% endif %}">...</a>
+  </div>
+</header>

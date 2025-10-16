@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>.</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="loading page-">
+
+  <header>
+  <div class="header-slot">
+    <a href="/" class="">Home</a>
+  </div>
+  <div class="header-slot">
+    <a href="/about" class="">About</a>
+  </div>
+  <div class="header-slot center-slot">
+    <img src="/images/cooltext.gif" alt="Literature Hell" class="title-gif" />
+    <p class="tagline">alright its time</p>
+  </div>
+  <div class="header-slot">
+    <a href="/veryimportant" class="">Important</a>
+  </div>
+  <div class="header-slot">
+    <a href="/waiting" class="active">...</a>
+  </div>
+</header>
+
+
+  <div class="header-toggle-tab" onclick="toggleHeader()" role="button" aria-pressed="false" aria-label="Toggle Header">▲</div>
+
+  <main class="main-content">
+    
+
+  </main>
+
+  <footer>
+  <p>if you want to contact me for whatever reason please do so through 
+    <a href="https://x.com/ItsLeLazyOne" style="color: #e63946;">here</a> or discord</p>
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="/js/taglineToggle.js" defer></script>
+  <script src="/js/bg-animation.js" defer></script>
+  <script>
+    window.addEventListener('load', () => {
+      document.body.classList.remove('loading');
+    });
+  </script>
+  <script src="/js/arrow-animation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    marked.setOptions({
+      breaks: true
+    });
+  </script>
+  <script src="/js/about-slide.js" defer></script>
+
+  <svg style="position:absolute; width:0; height:0;">
+    <filter id="wave-filter" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence id="turbulence" baseFrequency="0.02 0.05" numOctaves="2" result="turbulence" />
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+  <script src="/js/wave-distortion.js" defer></script>
+  
+  <script src="/js/change-title.js"></script>
+  
+
+</body>
+</html>
