@@ -1,0 +1,24 @@
+- heading: "LeLazyOne"
+  paragraph: |
+    hi its me, i am the main director of Literature Hell
+    you should totally trust me to make something awesome as i can do quite a lot of cool things
+    i have been making content for around 7 years on <a href="https://youtube.com/c/LeLazyOne" style="color: #e63946;">youtube</a> and have participated in various projects
+    game trailers, ui design, 2D and 3D animation, sound design, and video editing are just some of what i can do
+    i also made this entire website
+
+    idk what else to put here right now
+  gradient: "linear-gradient(to right, #00438a, transparent)"
+  image: "/images/about/about-me.gif"
+
+- heading: "[REDACTED]"
+  paragraph: |
+    [REDACTED]
+  gradient: "linear-gradient(to right, #000000, transparent)"
+  image: 
+
+- heading: "greg"
+  paragraph: |
+    nobody likes greg
+  gradient: "linear-gradient(to right, #ffffff, transparent)"
+  image: "/images/about/greg2.png"
+

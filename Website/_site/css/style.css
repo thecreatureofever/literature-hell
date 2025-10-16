@@ -1,0 +1,671 @@
+@font-face {
+    font-family: 'VerilySerifMono';
+    src: url('/fonts/VerilySerifMono.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Halogen';
+    src: url('/fonts/Halogen.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ammys Handwriting';
+    src: url('/fonts/Ammys Handwriting.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoSlab-Regular';
+    src: url('/fonts/RobotoSlab-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body.loading {
+    opacity: 0;
+    transition: opacity 0.15s ease-out;
+}
+
+/* === Global Styles === */
+body {
+    font-family: VerilySerifMono, Halogen, 'Ammys Handwriting', RobotoSlab-Regular, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0b0b;
+    color: #f2f2f2;
+    text-align: center;
+    opacity: 1;
+}
+
+/* === Header Styles === */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 2px solid #660000;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Toggle header button */
+.toggle-header-btn {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    background: none;
+    color: #888;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.2s;
+}
+
+.toggle-header-btn:hover {
+    color: #fff;
+}
+
+/* Collapsed header styles */
+body.header-collapsed header {
+    transform: translateY(-100%);
+}
+
+/* === Navigation Tabs (flipped from bottom of header) === */
+.nav-bar {
+    display: flex;
+    width: 100%;
+    margin-top: 0.5rem;
+    position: relative;
+    top: 100%;
+}
+
+.nav-bar a {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 0;
+    background-color: #2a2a2a;
+    color: #888;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95em;
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease,
+        filter 0.3s ease;
+    border-left: 1px solid #444;
+    border-right: 1px solid #444;
+    border-top: 2px solid #660000;
+    border-radius: 0 0 6px 6px;
+    filter: grayscale(100%) brightness(0.8);
+    cursor: pointer;
+}
+
+/* Remove border on first and last */
+.nav-bar a:first-child {
+    border-left: none;
+}
+
+.nav-bar a:last-child {
+    border-right: none;
+}
+
+/* Hover state for tabs */
+.nav-bar a:hover {
+    background-color: #990000;
+    color: #fff;
+    transform: translateY(4px);
+    filter: none;
+}
+
+/* Active tab stays colored and no hover animation */
+.nav-bar a.active {
+    background-color: #cc0000;
+    color: #fff;
+    filter: none;
+    cursor: default;
+    transform: none;
+}
+
+/* === Main Content === */
+.main-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin-top: 120px;
+}
+
+/* === Hero Section === */
+.hero img {
+    max-width: 90%;
+    height: auto;
+    margin: -0.5rem auto;
+    border: 3px solid #660000;
+    margin-top: 1rem;
+}
+
+/* === Description Section === */
+.description {
+    padding: 0.5rem 1rem;
+}
+
+.description h2 {
+    font-family: 'RobotoSlab-Regular', 'Segoe UI';
+    font-size: 2em;
+    color: #e6e6e6;
+    margin: 1rem 0;
+}
+
+.description p {
+    font-family: 'RobotoSlab-Regular', 'Segoe UI';
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+    color: #e6e6e6;
+    margin: 1rem 0;
+}
+
+/* === Donation Section === */
+.donation-section {
+    margin: 1rem auto;
+    padding: 0.5rem;
+    max-width: 600px;
+    background-color: rgba(26, 26, 26, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid #660000;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.donation-section p {
+    font-family: 'Ammys Handwriting', 'Segoe UI';
+    font-size: 1.1em;
+    color: #ddd;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.donate-btn {
+    display: inline-block;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+
+    background-color: #f6e59f;
+    color: #111;
+    font-family: 'Ammys Handwriting', 'Segoe UI', cursive;
+    font-size: 1.05rem;
+    text-align: center;
+    text-decoration: none;
+
+    border-radius: 4px;
+    border: 1px dashed #b9a75f;
+    outline: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: visible;
+
+    transform: rotate(-2.5deg);
+    box-shadow:
+      2px 2px 0 rgba(0, 0, 0, 0.35),
+      0 0 2px 1px rgba(0, 0, 0, 0.1);
+
+    filter: contrast(1.05) brightness(1.1);
+    clip-path: polygon(
+      0% 0%, 8% 3%, 15% 0%, 22% 2%, 30% 0%,
+      38% 3%, 46% 0%, 54% 2%, 62% 0%, 70% 3%,
+      78% 0%, 86% 2%, 94% 0%, 100% 3%, 100% 100%,
+      94% 97%, 86% 100%, 78% 98%, 70% 100%, 62% 97%,
+      54% 100%, 46% 98%, 38% 100%, 30% 97%, 22% 100%,
+      15% 98%, 8% 100%, 0% 97%
+    );
+    transition: all 0.3s ease;
+}
+
+.donate-btn:hover {
+    background-color: #fcf4c2;
+    transform: rotate(-1deg) scale(1.04);
+    box-shadow:
+      4px 4px 0 rgba(0, 0, 0, 0.4),
+      0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+/* === Footer === */
+footer {
+    padding: 1rem;
+    background-color: rgba(26, 26, 26, 0.5);
+    color: #ccc;
+    font-family: 'Segoe UI';
+    font-size: 0.9em;
+    border-top: 1px solid #333;
+    backdrop-filter: blur(8px);
+    position: relative;
+    z-index: 10;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 300%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.015) 40%, transparent 41%);
+    background-size: 120px 120px;
+    animation: diagonal-drift 10s linear infinite;
+    animation-delay: var(--animation-delay, 0ms);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes diagonal-drift {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-120px, -120px);
+    }
+}
+
+/* Gradient Layers */
+.gradient-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    background: transparent;
+    transition: opacity 1.4s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: opacity;
+    filter: blur(6px);
+}
+
+.image-slider-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 10;
+    background: transparent;
+}
+
+.nav-arrow {
+    pointer-events: all;
+    background: transparent;
+    border: none;
+    position: relative;
+    width: 2rem;
+    height: 13rem;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.arrow-svg {
+    display: block;
+    transform-origin: center;
+    pointer-events: none;
+    transition: stroke 0.3s ease;
+}
+
+/* === 5-Part Header Layout === */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    padding: 0;
+    margin: 0;
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #660000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* === Each of the 5 Even Header Slots === */
+.header-slot {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* === Navigation Tab Styles (fill slot exactly) === */
+.header-slot a {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2a2a2a;
+    color: #888;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95em;
+    border-top: 2px solid #660000;
+    border-left: 1px solid #444;
+    border-right: 1px solid #444;
+    filter: grayscale(100%) brightness(0.8);
+    transition: background-color 0.3s ease, color 0.3s ease,
+                transform 0.2s ease, filter 0.3s ease;
+    box-sizing: border-box;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* Override nav tab text (except center-slot) */
+.header-slot:not(.center-slot) a {
+    font-family: 'Halogen', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Remove left/right borders on the outermost tabs */
+.header-slot:first-child a {
+    border-left: none;
+}
+
+.header-slot:last-child a {
+    border-right: none;
+}
+
+/* Hover and active styles */
+.header-slot a:hover {
+    background-color: #990000;
+    color: #fff;
+    filter: none;
+}
+
+.header-slot a.active {
+    background-color: #cc0000;
+    color: #fff;
+    filter: none;
+    cursor: default;
+    pointer-events: none;
+    transform: none;
+}
+
+/* === Override hover/active for Tab 1 === */
+.header-slot:nth-child(1) a:hover {
+    background-color: #73D842;
+}
+.header-slot:nth-child(1) a.active {
+    background-color: #00B600;
+}
+
+/* === Override hover/active for Tab 2 === */
+.header-slot:nth-child(2) a:hover {
+    background-color: #81D6F8;
+}
+.header-slot:nth-child(2) a.active {
+    background-color: #16B4F2;
+}
+
+/* === Override hover/active for Tab 4 === */
+.header-slot:nth-child(4) a:hover {
+    background-color: #935CA2;
+}
+.header-slot:nth-child(4) a.active {
+    background-color: #330050;
+}
+
+/* === Override hover/active for Tab 5 === */
+.header-slot:nth-child(5) a:hover {
+    background-color: #F0B2C0;
+}
+.header-slot:nth-child(5) a.active {
+    background-color: #E26C86;
+}
+
+/* center-slot becomes the relative positioning context */
+.center-slot {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 120px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* logo fixed in place (centered horizontally) */
+.center-slot .title-gif {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    max-width: 80%;
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* tagline positioned independently under the logo */
+.center-slot .tagline {
+    position: absolute;
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 220px;
+    width: calc(min(60vw, 220px));
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 0.8em;
+    color: #ccc;
+    font-style: italic;
+    line-height: 1.1;
+    transition: opacity 0.8s ease-in-out;
+    opacity: 1;
+    z-index: 1;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+/* fade */
+.tagline.fade-out {
+    opacity: 0;
+}
+
+/* Tagline font */
+.center-slot .tagline {
+    font-family: 'Segoe UI';
+    letter-spacing: 0.03em;
+}
+
+.header-toggle-tab {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: #2a2a2a;
+    color: #888;
+    border: 2px solid #444;
+    border-radius: 6px;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+
+    position: fixed;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+
+    opacity: 0.5;
+    transition: 
+      opacity 0.3s ease, 
+      top 0.4s ease-in-out, 
+      background-color 0.3s ease, 
+      color 0.3s ease,
+      border-color 0.3s ease;
+}
+
+.header-toggle-tab:hover {
+    background-color: #990000;
+    color: #fff;
+    opacity: 1;
+    border-color: #660000;
+}
+
+/* Move toggle tab with header when toggled */
+body.header-collapsed .header-toggle-tab {
+    top: 0; /* stick to very top */
+    background-color: #cc0000;
+    color: #fff;
+    border-color: #660000;
+}
+
+.about-section {
+    display: flex;
+    justify-content: start-flex;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    padding: 2rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 5;
+}
+
+/* Shared base */
+.slider-image {
+    position: fixed;
+    left: 2.5vw;
+    bottom: 0;
+    width: 45vw;
+    height: auto;
+    max-height: calc(100vh - 180px);
+    z-index: 1;
+    overflow: visible;
+    transform: translateX(-100vw);
+    pointer-events: none;
+    object-fit: contain;
+}
+
+/* Image currently active (on top) */
+.slider-image.active {
+    z-index: 2;
+    pointer-events: auto;
+}
+
+/* Ghost image shared base */
+.ghost-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 65vw;
+    height: calc(100vh - 160px);
+    max-height: calc(100vh - 160px);
+    object-fit: contain;
+    transform: translate(-50%, -30%) scale(1.15);
+    z-index: 0;
+    pointer-events: none;
+    filter: url(#wave-filter) brightness(0.7) saturate(1.2);
+    opacity: 0;
+}
+
+.about-heading {
+    font-family: 'RobotoSlab-Regular', sans-serif;
+    font-size: 2.8rem;
+    margin: 0 0 2.5rem 0;
+    margin-top: -2.5rem;
+    line-height: 1.2;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+
+    /* Prevent overflow */
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.about-text {
+    font-family: 'RobotoSlab-Regular', 'Segoe UI';
+    font-size: 1.25rem;
+    position: absolute;
+    top: calc(5vh + 60px);
+    right: 2.5vw;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    color: #f2f2f2;
+
+    /* Prevent overflow */
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.tiny {
+  text-align: left;
+  padding-left: 0.1rem;      /* Space from left edge */
+  margin-top: 29rem;        /* Pushes it down */
+  margin-bottom: 2rem;     /* Space before the footer */
+  font-size: 1rem;
+  opacity: 0.1;
+}
